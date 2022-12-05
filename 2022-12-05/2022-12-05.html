@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework</title>
+    <style>
+        body {
+            word-break: break-all;
+        }
+        
+    </style>
+</head>
+<body>
+    <script>
+
+        //0 užduotis:
+
+        document.write('<h1>Linija</h1>');
+        
+        let i = 0;
+        let result = '';
+
+        while(i < 400) {
+            if(i % 50 === 0 && i != 0)
+                result += '<br />';
+
+            result += '*';
+            i++;
+        }
+        document.write(result);
+    </script>
+    <script>
+        
+        //1 užduotis:
+
+        function rand(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+       //1 užduotis:
+       document.write('<h1>1 užduotis:</h1>');
+
+       let random = rand(1, 6);
+        if(random == 1){
+            document.write('<h1>1</h1>');
+        }
+        else if(random == 2){
+            document.write('<h2>2</h2>');
+        }
+        else if(random == 3){
+            document.write('<h3>3</h3>');
+        }
+        else if(random == 4){
+            document.write('<h4>4</h4>');
+        }
+        else if(random == 5){
+            document.write('<h5>5</h5>');
+        }
+        else {
+            document.write('<h6>6</Sh6>');
+        }
+        
+        //2 užduotis:
+        document.write('<h1>2 užduotis:</h1>');
+
+        let random1 = rand(-10, 10);
+        let random2 = rand(-10, 10);
+        let random3 = rand(-10, 10);
+
+        
+      
+        if(random1 < 0 ) {
+            document.write('<h2 style="color:green">' + random1 + '</h2>');
+            
+        }
+
+         else{
+            document.write('<h2 style="color:red">' + random1 + '</h2>');
+        
+         }
+        if(random2 < 0 ) {
+            document.write('<h2 style="color:green">' + random2 + '</h2>');
+        }
+        else{
+            document.write('<h2 style="color:red">' + random2 + '</h2>');
+            
+        }
+
+        if(random3 < 0 ) {
+            document.write('<h2 style="color:green">' + random3 + '</h2>');
+        }
+        else{
+            document.write('<h2 style="color:red">' + random3 + '</h2>');
+          
+        }
+
+        //3 užduotis:
+        document.write('<h1>3 užduotis:</h1>');
+
+        const string1 = "An American in Paris";
+        const string2 = "Breakfast at Tiffany's";
+        const string3 = "2001: A Space Odyssey";
+        const string4 = "It's a Wonderful Life";
+
+        document.write(string1.replace(/[AaEeIiYyOoUu]/g, '') + '<br>');
+        document.write(string2.replace(/[AaEeIiYyOoUu]/g, '') + '<br>');
+        document.write(string3.replace(/[AaEeIiYyOoUu]/g, '') + '<br>');
+        document.write(string4.replace(/[AaEeIiYyOoUu]/g, '') + '<br>');
+
+        //4 užduotis:
+        document.write('<h1>4 užduotis:</h1>');
+
+        let sum = 0;
+        result = '';
+        i = 0;
+        let n = 0;
+        while (i < 300) {
+            rnumber = rand(0, 300);
+            i++;
+            result = rnumber + ' ';
+
+            if (rnumber > 275) {
+                result = '<span style="color: red">' + rnumber + ' </span>';
+            }
+            if(rnumber >= 150){
+                n++;
+            }
+            document.write(result);
+        }
+        document.write('<h3>Skaičiai didesni už 150:' + n ,'</h3>');
+
+        //5 užduotis:
+        document.write('<h1>5 užduotis:</h1>');
+
+        i = 0;
+        n = 0;
+       
+        while (i < 3000) {
+            if (i !=0 && i % 77 === 0) {
+                document.write(i + ', ');
+            }
+            i++;
+        
+        }
+        
+    </script>
+</body>
+</html>
