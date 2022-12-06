@@ -22,18 +22,16 @@
         let i = 0;
         let result = '';
 
-        while(i < 400) {
+        for(let i = 0; i < 400; i++) {
             if(i % 50 === 0 && i != 0)
                 result += '<br />';
 
             result += '*';
-            i++;
+            ;
         }
         document.write(result);
     </script>
     <script>
-        
-        //1 užduotis:
 
         function rand(min, max) {
         min = Math.ceil(min);
@@ -121,7 +119,7 @@
         while (i < 300) {
             rnumber = rand(0, 300);
             i++;
-            result = rnumber + ' ';
+            result = rnumber + '  ';
 
             if (rnumber > 275) {
                 result = '<span style="color: red">' + rnumber + ' </span>';
@@ -138,15 +136,16 @@
 
         i = 0;
         n = 0;
-       
+        result = '';
+        
         while (i < 3000) {
             if (i !=0 && i % 77 === 0) {
-                document.write(i + ', ');
+                result = result + i + ',';
             }
             i++;
-        
         }
-        
+        result = result.slice(0, result.length - 1);
+        document.write(result);
     </script>
 </body>
 </html>
