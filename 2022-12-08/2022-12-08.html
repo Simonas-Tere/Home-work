@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework</title>
+    <style>
+        body {
+            word-break: break-all;
+        }   
+        
+    </style>
+</head>
+<body>
+    <script>
+        function rand(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    //1 užduotis:
+    document.write('<h1>1 užduotis</h1>')
+    
+    let Kpoints = 0;
+    let Ppoints = 0;
+    while(true){
+        const Kazys = rand(10,20);
+        Kpoints = Kazys + Kpoints;
+        const Petras = rand(5,25);
+        Ppoints = Petras + Ppoints;
+        if( (Kpoints === Ppoints) && Kpoints >= 222){
+            document.write('<h2> Partiją paibaigė ligiosiomis.</h2>');
+            break;
+        }
+        else if(Kpoints >= 222){
+            document.write('<h2> Partiją laimėjo: Kazys </h2>');
+            break;
+        }
+        else if(Ppoints >= 222){
+            document.write('<h2> Partiją laimėjo: Petras </h2>');
+            break;
+        }
+        }console.log(Kpoints, Ppoints);
+
+        //2 užduotis:
+        document.write('<h1>2 užduotis</h1>')
+
+        let nail = 85; 
+        let k = 0;
+        let m = 0;
+        let depth = rand(50,85);
+       
+        
+        while(true){
+            
+            if(nail >= depth){
+                document.write('<h2>Vinis ikalta.</h2>')
+                break;
+            }   
+        }
+    
+
+        for(let i = 0; i < 5; i++){
+            while(true){
+                let hit = rand(5,20);
+                m = hit + m;
+                k++;
+                if(m >= depth){
+                    m = 0;
+                    break;
+                }                                                         
+            }
+        }
+        document.write('<h2>Penkios vinis ikaltos. Per '+ k +' kartus.'+'</h2>');
+
+        k = 0;
+        for(let i = 0; i < 5; i++){
+            while(true){
+                let hit = rand(20,30);
+                let miss = rand(0,1)
+                k++;
+                if(miss === 0){
+                    k--
+                    hit = 0;
+                }
+                m = hit + m;
+                if(m >= depth){
+                    m = 0;
+                    break;
+                }                                                         
+            }
+        }
+        document.write('<h2>Penkios vinis ikaltos. Per '+ k +' kartus.'+'</h2>');
+
+        //3 užduotis:
+        document.write('<h1>3 užduotis</h1>')
+
+        let string = [];
+        for(let i = 0; i < 50; i++){
+            string[i] = rand(1,200);
+            
+        }
+        for(let i = 0; i < length.string ; i++){
+            if(string[i] === string[i++]){
+                string[i] = rand(1,200)
+            }
+        }
+        let d = 0;
+        let temp ;
+        for(let i = 1; i < length.string - 1; i++){
+            for(let j = i + 1; j < length.string - 1; j++){
+                if(string[j] < string[d]){
+                    d=i;
+                    temp = string[i];
+                    string[i] = string[d];
+                    string[d] = temp;
+                }
+            }
+        }
+        document.write(string)
+        console.log(string)
+    </script>
+</body>
+</html>

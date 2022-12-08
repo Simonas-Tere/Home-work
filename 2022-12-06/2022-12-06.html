@@ -8,8 +8,6 @@
     <style>
         body {
             word-break: break-all;
-            line-height: 8px;
-            
         }   
         
     </style>
@@ -44,21 +42,65 @@
         document.write(result);
 
         //3 užduotis:
-        document.write('<h1>3 užduotis</h1>');
+        document.write('<h1>3-a užduotis</h1>');
 
-        const random = [];
-        let s = 0;
-        let h = 0;
-        for(let i = 0; i < 3; i++){
-            random[i] = rand(0, 1);
-            if(random[i] == 0){
-                document.write('<h2>H</h2>');
-            }
-            else{
-            document.write('<h2>S</h2>');
+        let rezultatas = '';
+        
+        while(true) {
+            const skaicius = rand(0, 1);
+
+            if(skaicius === 0) {
+                rezultatas += 'H';
+                break;
+            } else {
+                rezultatas += 'S';
             }
         }
-        
+        document.write('Rezultatas: ' + rezultatas);
+
+        rezultatas = '';
+        let skaiciuotuvas = 0;
+
+        document.write('<h1>3-b užduotis</h1>');
+
+        while(true) {
+            const skaicius = rand(0, 1);
+
+            if(skaicius === 0) {
+                rezultatas += 'H';
+                skaiciuotuvas++;
+            } else {
+                rezultatas += 'S';
+            }
+
+            if(skaiciuotuvas >= 3) 
+                break;
+        }
+        document.write('Rezultatas: ' + rezultatas);
+
+        document.write('<h1>3-c užduotis</h1>');
+
+        rezultatas = '';
+        skaiciuotuvas = 0;
+
+        while(true) {
+            const skaicius = rand(0, 1);
+
+            if(skaicius === 0) {
+                rezultatas += 'H';
+                skaiciuotuvas++;
+            } else {
+                rezultatas += 'S';
+                skaiciuotuvas = 0;
+            }
+
+            if(skaiciuotuvas >= 3) 
+                break;
+        }
+
+        document.write('Rezultatas: ' + rezultatas);
+
+
         //4-5 užduotis:
         document.write('<h1>4-5 užduotis</h1>');
 
@@ -69,7 +111,10 @@
         let sum = 0;
         let indexes = []
         const thirty = [];
-        const ten = []
+        rezultatas = [];
+        const first = [];
+        const second = [];
+        let last = [];
 
         for(let i = 0; i < 30; i++){
             thirty[i] = rand(5,25);
@@ -81,29 +126,54 @@
             }
             if(thirty[i] > max){
                 max = thirty[i];
-            }
-            if(thirty[i] === max) {
-                indexes[indexes.length] = i;
-            }    
+            } 
             if(thirty[i] % 2 == 0){
                 sum = sum + thirty[i];
             }
         }
-        for(let i = 0; i < 10; i++){
-                ten[i] = rand(5, 25)
-                answer1 = answer1 + ten[i] + ',';
+        for(let i = 0; i < thirty.length; i++){
+            if(thirty[i] === max) {
+                indexes[indexes.length] = i;
+            }   
         }
-        console.log(max);
-        console.log(indexes);
-        answer1 = answer1.slice(0, answer1.length - 1);
-        document.write(answer,answer1);
-        document.write('<h2>Iš viso dideniu už 10, yra:' + n +'</h2>');
-        document.write('<h2>Visas maksimumas, yra:', max ,',elemento vieta',indexes ,'</h2>');
-        document.write('<h2>Iš viso lyginiu skaičiu suma, yra:' + sum +'</h2>');
+        for(let i = 0; i < thirty.length; i++) {
+            rezultatas.push(thirty[i] - i);
+        }
+        for(let i = 0; i < 10; i++){
+                const ten = rand(5, 25)
+                thirty[thirty.length] = ten;
+                
+        }
+        for(let i = 0; i < thirty.length; i++) {
+            if(thirty[i] % 2 === 0) {
+                first[first.length] = thirty[i];
+            } else {
+                second[second.length] = thirty[i];
+            }
+        }
+        for(let i = 0; i < thirty.length; i++) {
+            if(i % 2 === 0 && thirty[i] > 15)
+                thirty[i] = 0;
+        }
 
+        for(let i = 0; i < thirty.length; i++) {
+            if(thirty[i] <= 10)
+                last[last.length] = thirty[i];
+        }
 
+        
 
-
+        answer = answer.slice(0, answer.length - 1);
+        document.write('<h2>' + answer + '</h2>');
+        document.write('<h2>Iš viso dideniu už 10, yra: ' + n + '</h2>');
+        document.write('<h2>Visas maksimumas, yra: ', max ,' ,elemento vieta: ' + indexes + '</h2>');
+        document.write('<h2>Iš viso lyginiu skaičiu suma, yra: ' + sum + '</h2>');
+        document.write('<h2>Masyvas iš kurio reikšmių atimti indeksai: ' + rezultatas + '</h2>');
+        document.write('<h2>Papildytas masyvas: ' + thirty + '</h2>');
+        document.write('<h2>Pirmas masyvas: ' + first + '<br />' + '</h2>');
+        document.write('<h2>Antras masyvas: ' + second + '<br />' + '</h2>');
+        document.write('<h2>Nulintas masyvas: ' + thirty + '</h2>');
+        document.write('<h2>Išvalytas masyvas: ' + last + '</h2>');
     </script>
 </body>
 </html>

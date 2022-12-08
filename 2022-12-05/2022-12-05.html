@@ -73,28 +73,32 @@
       
         if(random1 < 0 ) {
             document.write('<h2 style="color:green">' + random1 + '</h2>');
-            
         }
-
-         else{
+         else if(random1 === 0){
             document.write('<h2 style="color:red">' + random1 + '</h2>');
-        
          }
-        if(random2 < 0 ) {
+         else{
+            document.write('<h2 style="color:blue">' + random1 + '</h2>');
+         }
+         if(random2 < 0 ) {
             document.write('<h2 style="color:green">' + random2 + '</h2>');
         }
-        else{
+         else if(random2 === 0){
             document.write('<h2 style="color:red">' + random2 + '</h2>');
-            
-        }
+         }
+         else{
+            document.write('<h2 style="color:blue">' + random2 + '</h2>');
+         }
 
-        if(random3 < 0 ) {
+         if(random3 < 0 ) {
             document.write('<h2 style="color:green">' + random3 + '</h2>');
         }
-        else{
+         else if(random3 === 0){
             document.write('<h2 style="color:red">' + random3 + '</h2>');
-          
-        }
+         }
+         else{
+            document.write('<h2 style="color:blue">' + random3 + '</h2>');
+         }
 
         //3 užduotis:
         document.write('<h1>3 užduotis:</h1>');
