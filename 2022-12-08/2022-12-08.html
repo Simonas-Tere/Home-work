@@ -99,28 +99,23 @@
 
         let string = [];
         for(let i = 0; i < 50; i++){
-            string[i] = rand(1,200);
-            
-        }
-        for(let i = 0; i < length.string ; i++){
-            if(string[i] === string[i++]){
-                string[i] = rand(1,200)
-            }
-        }
-        let d = 0;
-        let temp ;
-        for(let i = 1; i < length.string - 1; i++){
-            for(let j = i + 1; j < length.string - 1; j++){
-                if(string[j] < string[d]){
-                    d=i;
-                    temp = string[i];
-                    string[i] = string[d];
-                    string[d] = temp;
+        let number = rand(1, 200);
+        let check = string.includes(number);
+            if (check === false) {
+                string.push(number);
+            } else {
+                while (check === true) {
+                    number = rand(1, 200);
+                    check = string.includes(number);
+                    if (check === false) {
+                        string.push(number);
+                    }
                 }
             }
         }
-        document.write(string)
-        console.log(string)
+    
+        document.write( string)
+        console.log( string)
     </script>
 </body>
 </html>
