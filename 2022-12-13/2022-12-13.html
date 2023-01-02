@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework</title>
+</head>
+<body>
+    <script>
+        function rand(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        // 1. Sukurkite funkciją kuri priimtų parametrą "name". Jos tikslas atspausdinti naršyklėje tekstą "Labas," ir šalia jo perduotą vardą. Pvz "Labas, Elena".
+
+        document.write('<h2>1 užduotis</h2>');
+
+        const printName = (name) => {
+            document.write('Labas ', name);
+        }
+
+        //const printName = name => 'Labas ' + name; //supaprastinta dar labiau sintakse
+
+        printName('Simonas');
+
+        // 2. Sukurkite funkciją  kuri priimtų vieną parametrą (tekstą) ir grąžintų atsakymą kiek simbolių yra tame tekste. Iš funkcijos gautą rezultatą atvaizduokite naršyklėje.
+
+        document.write('<h2>2 užduotis</h2>');
+
+        const symbolCounter = (text) => {
+            return 'Tekstas turi ' + text.length + ' simbolius/simbolių.';
+        }
+
+        document.write(symbolCounter('Aš esu Simonas.'));
+
+        // 3. Sukurkite funkciją kuri priimtų du parametrus "name" ir "last_name". Funkcija turi grąžinti vieną stringą, kuriame būtų vardas ir pavardė prasidedantys didžiosiomis raidėmis.
+
+        document.write('<h2>3 užduotis</h2>'); 
+        
+        const nameAndSurname = (name, last_name) => {
+            let fullName = name.charAt(0).toUpperCase() + name.slice(1) + ' ' + last_name.charAt(0).toUpperCase() + last_name.slice(1);
+            return fullName;
+        }
+
+        document.write(nameAndSurname('simonas', 'teresevičius'));
+
+        // 4. Parašykite funkciją kuri sugeneruotų 3 random skaičius nuo 0 iki 5 ir atspausdintų koncolėje vienoje eilutėje atskirtus kableliais. Po paskutinio skaičiaus kablelio neturi būti.
+
+        document.write('<h2>4 užduotis</h2>'); 
+        // 1 variantas su kintamaisiais
+        // const printNumbers = () => {
+        //     let number1 = rand(0, 5);
+        //     let number2 = rand(0, 5);
+        //     let number3 = rand(0, 5);
+
+        //     let result = number1 + ',' + number2 + ',' + number3;
+        //     document.write(result);
+        // }
+
+        // printNumbers();
+
+        // 2 variantas dinamiskesnis su ciklu. jeigu noretumem atspausdinti daugiau skaiciu, galime modifikuoti funkcija paduodant parametra 
+
+        function randomNumbers() {
+            const numbers = [];
+
+            for(let i = 0; i < 3; i++) {
+                numbers[numbers.length] = rand(0, 5);
+            }
+
+            document.write(numbers);
+        }
+
+        randomNumbers();
+
+        /// 5. Parašykite funkciją kuri priimtų tris parametrus "from" ir "to" ir "limit". Patikrinkite ar šie perduodami parametrai yra skaičiai ir pagal juos sugeneruokite masyvą, kurio ilgį nusako "limit" parametras, o reikšmės from ir to nurodo atsitiktinį skaičių šiuose rėžiuose.
+
+        document.write('<h2>5 užduotis</h2>');
+
+        const generateArray = (from, to, limit) => {
+
+            if(typeof from === 'number' && typeof to === 'number' && typeof limit === 'number') {
+
+            let newArray = [];
+
+                for(i = 0; i < limit; i++) { 
+                newArray.push(rand(from, to));
+            }
+                return newArray;
+
+            } else {
+                return 'ivestos reiksmes nera skaiciai';
+            }
+        }
+
+        document.write(generateArray(15, 55, 20));
+
+    </script>
+</body>
+</html>
